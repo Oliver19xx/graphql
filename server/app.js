@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 const app = express();
 
 // connect to mlab database
-mongoose.connect('mongodb+srv://admin:C5kXmTx7YyST5VUj@cluster0.xxrca.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://admin:<password>@cluster0.xxrca.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 mongoose.connection.once('open', () => {
     console.log('connected to database');
 })
