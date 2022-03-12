@@ -16,31 +16,31 @@ function AddBook() {
         e.preventDefault();
         addBook({
             variables: {
-                name: inputName.value,
-                genre: inputGenre.value,
-                authorId: inputAuthorID.value
+                name,
+                genre,
+                authorId
             }, refetchQueries: [
                 { query: getBooksQuery }
             ]
         });
-        inputName.value = '';
-        inputGenre.value = '';
-        inputAuthorID.value = '';
+        name = '';
+        genre = '';
+        authorId = '';
     }
 
     return (
         <form id="add-book" onSubmit={handleSubmit}>
             <div className="field">
                 <label>Book name:</label>
-                <input type="text" ref={node => { inputName = node; }} value={name} onChange={(e) => setName(e.target.value)} />
+                <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
             </div>
             <div className="field">
                 <label>Genre:</label>
-                <input type="text" ref={node => { inputGenre = node; }} value={genre} onChange={(e) => setGenre(e.target.value)} />
+                <input type="text" value={genre} onChange={(e) => setGenre(e.target.value)} />
             </div>
             <div className="field">
                 <label>Author:</label>
-                <select value={authorId} ref={node => { inputAuthorID = node; }} onChange={(e) => setAuthorId(e.target.value)}>
+                <select value={authorId} onChange={(e) => setAuthorId(e.target.value)}>
                     <option value={null}>{loading ? 'Authors loading' : 'Select author'}</option>
                     {data?.authors.map(author => <option key={author.id} value={author.id}>{author.name}</option>)}
                 </select>
