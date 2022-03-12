@@ -2,10 +2,7 @@ import BookList from "./components/BookList";
 import {
   ApolloClient,
   InMemoryCache,
-  ApolloProvider,
-  useQuery,
-  gql
-} from "@apollo/client";
+  ApolloProvider} from "@apollo/client";
 import AddBook from "./components/AddBook";
 
 const client = new ApolloClient({
