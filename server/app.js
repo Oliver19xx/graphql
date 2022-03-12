@@ -2,11 +2,13 @@ const express = require('express');
 const { graphqlHTTP } = require('express-graphql');
 const schema = require('./schema/schema')
 const mongoose = require('mongoose')
+require('dotenv').config()
 
+console.log(process.env.MONGO_DB_URL)
 const app = express();
 
 // connect to mlab database
-mongoose.connect('mongodb+srv://admin:<password>@cluster0.xxrca.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+mongoose.connect(process.env.MONGO_DB_URL)
 mongoose.connection.once('open', () => {
     console.log('connected to database');
 })
