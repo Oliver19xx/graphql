@@ -9,7 +9,7 @@ const getBooksQuery = gql`
 }
 `
 
-function BookList(props) {
+function BookList() {
     const { loading, error, data } = useQuery(getBooksQuery);
     
     if (loading) return <p>Loading Books...</p>;

@@ -6,6 +6,7 @@ import {
   useQuery,
   gql
 } from "@apollo/client";
+import AddBook from "./components/AddBook";
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000/graphql',
@@ -18,6 +19,7 @@ function App() {
     <div id="main">
       <h1>Reading List</h1>
       <BookList/>
+      <AddBook/>
     </div>
     </ApolloProvider>
   );
