@@ -1,11 +1,15 @@
+require('dotenv').config()
 const express = require('express');
 const { graphqlHTTP } = require('express-graphql');
 const schema = require('./schema/schema')
 const mongoose = require('mongoose')
-require('dotenv').config()
+const cors = require('cors');
 
-console.log(process.env.MONGO_DB_URL)
+
 const app = express();
+
+// allow cross-origin requests
+app.use(cors())
 
 // connect to mlab database
 mongoose.connect(process.env.MONGO_DB_URL)
